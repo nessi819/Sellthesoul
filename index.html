@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENTER PASSWORD</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.login-box {
+    width: 320px;
+    max-width: calc(100% - 40px);
+    padding: 38px 30px;
+    background: white;
+    text-align: center;
+}
+
+h2 {
+    font-size: 17px;
+    margin: 0 0 25px;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    background: white;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 6px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    height: 43px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 0;
+    background: black;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.hint {
+    margin-top: 22px;
+    color: #888;
+    font-size: 11px;
+}
+
+#error {
+    display: none;
+    color: #d33;
+    font-size: 11px;
+    margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>ENTER PASSWORD</h2>
+
+    <input
+        type="text"
+        id="password"
+        placeholder="••••"
+        maxlength="4"
+        inputmode="numeric"
+        autocomplete="off"
+    >
+
+    <button type="button" id="enter">ENTER</button>
+
+    <div class="hint">HINT : 저스디스 생일 4자리</div>
+    <div id="error">Incorrect password. Try again.</div>
+</div>
+
+<script>
+const passwordInput = document.getElementById("password");
+const enterButton = document.getElementById("enter");
+const errorMessage = document.getElementById("error");
+
+function checkPassword() {
+    const value = passwordInput.value.trim();
+
+    if (value === "0507") {
+        window.location.assign(
+            "https://superficial-longship-e29.notion.site/2027-40f7a919c31d8061888feaad0d6c2f98?source=copy_link"
+        );
+    } else {
+        errorMessage.style.display = "block";
+        passwordInput.value = "";
+        passwordInput.focus();
+    }
+}
+
+enterButton.addEventListener("click", checkPassword);
+
+passwordInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+});
+
+passwordInput.addEventListener("input", function() {
+    errorMessage.style.display = "none";
+});
+</script>
+
+</body>
+</html>
